@@ -1,0 +1,52 @@
+<div class="container">
+  <div  *ngIf="sales?.length > 0;else noSales">
+    <!--
+      <ul *ngFor="let sale of sales" classs="collection">
+        <li class="collection-item">
+          <strong>Buyer detailes: </strong><br>
+          Buyer Name: {{ sale.Buyerdetaile.name }}<br>
+          Buyer Ebay ID: {{ sale.Buyerdetaile.ebayid }}<br>
+          <strong>Purchase detailes:</strong><br>
+          Ebay Item ID: {{ sale.Ebayitemid }}<br>
+          Purchase Date: {{ sale.Pdate | date : 'EEEE, dd/MM/yyyy' }}<br>
+        </li>
+      </ul>
+    -->
+  <table class="collection table table-hover table-dark" *ngFor="let sale of sales">
+    <thead>
+      <tr>
+        <th>Buyer Name</th>
+        <th>Buyer Ebay Id</th>
+        <th>Ebay Item Id</th>
+        <th>Purchase Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="collection-item">
+          <td>{{ sale.Buyerdetaile.name }}</td>
+          <td>{{ sale.Buyerdetaile.ebayid }}</td>
+          <td>{{ sale.Ebayitemid }}</td>
+          <td>{{ sale.Pdate | date : 'EEEE, dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+    <h1> Add New Sale</h1>
+    <form (ngSubmit)="saleSubmit()" #addform="ngForm">
+      <div class="form-group">
+        <label for="buyername">Buyer Name</label>
+        <input type="text"[(ngModel)]="model.buyername" name="buyername"
+          class="form-control" id="buyername" required #buyername="ngModel">
+      </div> 
+      <button type="submit" class="btn btn-default form-control">Add Sale</button>
+    </form>
+  </div>
+  <ng-template #noSales>
+      <hr>
+      <h5>
+        No salse to show 
+      </h5>
+    </ng-template>
+    
+</div>
