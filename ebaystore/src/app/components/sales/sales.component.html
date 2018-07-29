@@ -21,13 +21,107 @@
     </tbody>
   </table>
 </div>
+<br><hr>
 <div>
     <h1> Add New Sale</h1>
     <form (ngSubmit)="saleSubmit()" #addform="ngForm">
       <div class="form-group">
-        <label for="buyername">Buyer Name</label>
-        <input type="text"[(ngModel)]="model.Buyerdetaile.name" name="buyername"
-          class="form-control" id="buyername" required #buyername="ngModel">
+        <fieldset>
+        <legend>Ebay</legend>
+          <h5>Buyer Detailes:</h5>
+            <label for="buyername">Buyer Name:</label>
+            <input type="text"[(ngModel)]="model.Ebay.Buyerdetaile.name" name="buyername"
+            class="form-control" id="buyername" required #buyername="ngModel">
+
+            <label for="buyerid">Buyer Ebay id:</label>
+            <input type="text"[(ngModel)]="model.Ebay.Buyerdetaile.ebayid" name="buyerid"
+            class="form-control" id="buyerid" #buyerid="ngModel">
+
+          <h5>Item Detailes</h5>
+          <label for="Itemid">Ebay Item id:</label>
+          <input type="text"[(ngModel)]="model.Ebay.Itemdetaile.Itemid" name="Itemid"
+          class="form-control" id="Itemid" #Itemid="ngModel">
+
+          <label for="Pprice">Ebay Item price:</label>
+          <input type="text"[(ngModel)]="model.Ebay.Itemdetaile.Pprice" name="Pprice"
+          class="form-control" id="Pprice" #Pprice="ngModel">
+        </fieldset>
+
+        <br><hr>
+        <fieldset>
+          <legend>Paypal</legend>
+              <label for="PaypalDname">Buyer Paypal Display Name:</label>
+              <input type="text"[(ngModel)]="model.Paypal.Dname" name="PaypalDname"
+              class="form-control" id="PaypalDname" #PaypalDname="ngModel">
+
+              <label for="Pdate">Purchased on:</label>
+              <input type="text"[(ngModel)]="model.Paypal.Pdate" name="Pdate"
+              class="form-control" id="Pdate" #Pdate="ngModel">
+
+              <h5>Payment Detailes</h5>
+                <label for="Paidby">Paid By:</label>
+                <input type="text"[(ngModel)]="model.Paypal.Paymentdetaile.Paidby" name="Paidby"
+                class="form-control" id="Paidby" #Paidby="ngModel">
+
+                <label for="TransactionNum">Transaction Number:</label>
+                <input type="text"[(ngModel)]="model.Paypal.Paymentdetaile.TransactionNum" name="TransactionNum"
+                class="form-control" id="TransactionNum" #TransactionNum="ngModel">
+        </fieldset>
+        <br><hr>
+        <fieldset>
+          <legend>Amazon</legend>
+            <label for="Asin">Amazon ASIN:</label>
+            <input type="text"[(ngModel)]="model.Amazon.Asin" name="Asin"
+            class="form-control" id="Asin" #Asin="ngModel">
+
+            <label for="Price">Amazon Item Price:</label>
+            <input type="text"[(ngModel)]="model.Amazon.Price" name="Price"
+            class="form-control" id="Price" #Price="ngModel">
+
+            <label for="Supplier">Supplier name:</label>
+            <input type="text"[(ngModel)]="model.Amazon.Supplier" name="Supplier"
+            class="form-control" id="Supplier" #Supplier="ngModel">
+
+            <label for="OrderNum">Order Number:</label>
+            <input type="text"[(ngModel)]="model.Amazon.OrderNum" name="OrderNum"
+            class="form-control" id="OrderNum" #OrderNum="ngModel">
+
+            <label for="OrderDate">Order Date:</label>
+            <input type="text"[(ngModel)]="model.Amazon.OrderDate" name="OrderDate"
+            class="form-control" id="OrderDate" #OrderDate="ngModel">
+        </fieldset>
+        <br><hr>
+        <fieldset>
+          <legend>Shipping</legend>
+            <label for="ShipeTo">Shipe To (name):</label>
+            <input type="text"[(ngModel)]="model.Shipping.ShipeTo" name="ShipeTo"
+            class="form-control" id="ShipeTo" #ShipeTo="ngModel">
+
+            <h5>Shipping Address:</h5>
+              <label for="Address1">Address1:</label>
+              <input type="text"[(ngModel)]="model.Shipping.ShippingAddress.Address1" name="Address1"
+              class="form-control" id="Address1" #Address1="ngModel">
+
+              <label for="Address2">Address2:</label>
+              <input type="text"[(ngModel)]="model.Shipping.ShippingAddress.Address2" name="Address2"
+              class="form-control" id="Address2" #Address2="ngModel">
+
+              <label for="City">City:</label>
+            <input type="text"[(ngModel)]="model.Shipping.ShippingAddress.City" name="City"
+            class="form-control" id="City" #City="ngModel">
+
+            <label for="State">State:</label>
+            <input type="text"[(ngModel)]="model.Shipping.ShippingAddress.State" name="State"
+            class="form-control" id="State" #State="ngModel">
+
+            <label for="ZipCode">ZipCode:</label>
+            <input type="text"[(ngModel)]="model.Shipping.ShippingAddress.ZipCode" name="ZipCode"
+            class="form-control" id="ZipCode" #ZipCode="ngModel">
+
+            <label for="Country">Country:</label>
+            <input type="text"[(ngModel)]="model.Shipping.ShippingAddress.Country" name="Country"
+            class="form-control" id="Country" #Country="ngModel">
+        </fieldset>
       </div> 
       <button type="submit" class="btn btn-default form-control">Add Sale</button>
     </form>

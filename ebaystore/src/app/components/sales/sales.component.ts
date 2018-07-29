@@ -11,10 +11,48 @@ import { Sale } from '../../models/sale';
 export class SalesComponent implements OnInit {
   sales: Sale[];
   model = {
-    Buyerdetaile : {
-                  name:''
-                }
-                };
+    Ebay:{
+      Buyerdetaile: {
+        name:'',
+        ebayid:''
+                    },
+      Itemdetaile: {
+        Itemid:'',
+        Pprice:''
+                    }
+                  },
+    Paypal:{
+      Dname:'',
+      Pdate:'',
+      Paymentdetaile:{
+       Paidby:'',
+       TransactionNum:''             
+      }
+                    },
+    Amazon:{
+      Asin:'',
+      Price:'',
+      Supplier:'',
+      OrderNum:'',
+      OrderDate:''
+    },
+    Shipping:{
+      ShipeTo:'',
+      ShippingAddress:{
+        Address1:'',
+        Address2:'',
+        City:'',
+        State:'',
+        ZipCode:'',
+        Country:''
+      },
+      ContactNumber:'',
+      Trackingdetailes:{
+        TrackingNum:'',
+        TrackingCarrier:''
+      },
+      MarkedShipped:''
+    }};
 
   ngOnInit() {
     this.saleService.getSales().subscribe(sales => {
@@ -28,7 +66,7 @@ export class SalesComponent implements OnInit {
 
 saleSubmit(){
   this.saleService.addSale(this.model);
-  this.model.Buyerdetaile.name='';
+  this.model=null;
 }
 
 saleDelete(sale){
